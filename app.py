@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask 
 app = Flask(__name__)
 
 @app.route('/')
@@ -32,6 +32,7 @@ def show_items():
             body {
                 display: flex;
                 flex-direction: column;
+                min-height: 100vh;
             }
             .container {
                 background-color: #1C2526;
@@ -40,7 +41,6 @@ def show_items():
                 flex: 1;
                 display: flex;
                 flex-direction: column;
-                justify-content: flex-start;
             }
             h1 {
                 font-size: 36px;
@@ -91,10 +91,21 @@ def show_items():
                 color: #FFD700;
                 font-size: 20px;
             }
+            .meat-image {
+                display: block;
+                max-width: 80%;
+                height: auto;
+                margin: 20px auto;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(255,255,255,0.2);
+            }
+            .bottom-section {
+                margin-top: auto;
+                text-align: center;
+            }
             .contact {
                 font-size: 20px;
                 margin-top: 20px;
-                text-align: center;
             }
             .contact a {
                 color: #FFD700;
@@ -112,18 +123,9 @@ def show_items():
             .note {
                 font-size: 14px;
                 font-style: italic;
-                text-align: center;
                 margin-top: 10px;
-                margin-bottom: 0;
+                margin-bottom: 10px;
                 color: #D3D3D3;
-            }
-            .meat-image {
-                display: block;
-                max-width: 80%;
-                height: auto;
-                margin: 20px auto;
-                border-radius: 10px;
-                box-shadow: 0 0 10px rgba(255,255,255,0.2);
             }
             @media (max-width: 600px) {
                 h1 {
@@ -162,22 +164,4 @@ def show_items():
             <ul>
     """
     
-    for item, price, icon in items:
-        html += f'<li><div class="item-container"><i class="{icon}"></i><span class="item-name">{item}</span></div><span class="item-price">${price:.2f}</span></li>'
-    
-    html += """
-            </ul>
-            <img src="/static/images/meat_products.jpg" alt="Meat Products" class="meat-image">
-            <p class="contact">
-                Call or Text <a href="tel:+14129908956"><i class="fa-solid fa-phone"></i></a> | 
-                <a href="https://wa.me/14129908956"><i class="fa-brands fa-whatsapp"></i></a>
-            </p>
-            <p class="note">Minimum 5 lbs to order - Delivery charges apply</p>
-        </div>
-    </body>
-    </html>
-    """
-    return html
-
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
+    for item, price,
