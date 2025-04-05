@@ -35,19 +35,31 @@ def show_items():
             .meat-image { display: block; max-width: 80%; margin: 20px auto; border-radius: 10px; box-shadow: 0 0 10px rgba(255,255,255,0.2); }
             .bottom-section { margin-top: auto; text-align: center; }
             .contact { font-size: 20px; margin-top: 20px; }
-            .contact a { color: #FFD700; text-decoration: none; margin: 0 10px; }
-            .contact a:hover { text-decoration: underline; }
+
+            .contact a {
+                color: #FFD700;
+                text-decoration: none;
+                margin: 0 10px;
+            }
+
+            .contact a:hover {
+                text-decoration: underline;
+            }
+
             .contact i {
                 margin-left: 5px;
-                font-size: 20px;
+                font-size: 28px;
                 color: #FFD700;
-                transition: all 0.3s ease;
+                animation: giggle 1s infinite ease-in-out;
+                display: inline-block;
             }
-            .contact a:hover i {
-                animation: giggle 0.6s ease-in-out infinite;
-                filter: drop-shadow(0 0 5px #FFD700);
+
+            .note {
+                font-size: 14px;
+                font-style: italic;
+                margin: 10px 0;
+                color: #D3D3D3;
             }
-            .note { font-size: 14px; font-style: italic; margin: 10px 0; color: #D3D3D3; }
 
             @keyframes giggle {
                 0%, 100% { transform: rotate(0deg); }
@@ -64,6 +76,7 @@ def show_items():
                 .meat-image { max-width: 90%; }
                 .contact { font-size: 18px; }
                 .note { font-size: 13px; }
+                .contact i { font-size: 32px; }
             }
         </style>
     </head>
