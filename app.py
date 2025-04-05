@@ -24,21 +24,23 @@ def show_items():
                 padding: 0;
                 box-sizing: border-box;
             }
-            body {
-                font-family: Arial, sans-serif;
+            html, body {
+                height: 100%;
                 background-color: #000000;
-                color: #FFFFFF;
-                min-height: 100vh;
+                font-family: Arial, sans-serif;
+            }
+            body {
                 display: flex;
                 flex-direction: column;
             }
             .container {
                 background-color: #1C2526;
+                color: #FFFFFF;
                 padding: 20px;
                 flex: 1;
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
+                justify-content: flex-start;
             }
             h1 {
                 font-size: 36px;
@@ -63,6 +65,7 @@ def show_items():
                 padding: 0;
                 margin: 0 auto 20px auto;
                 max-width: 600px;
+                width: 100%;
             }
             li {
                 font-size: 18px;
@@ -111,7 +114,7 @@ def show_items():
                 font-style: italic;
                 text-align: center;
                 margin-top: 10px;
-                margin-bottom: 10px;
+                margin-bottom: 0;
                 color: #D3D3D3;
             }
             .meat-image {
