@@ -1,4 +1,4 @@
-from flask import Flask 
+from flask import Flask
 app = Flask(__name__)
 
 @app.route('/')
@@ -12,7 +12,7 @@ def show_items():
         ("Honey (Half kg)", 17.99, "fa-solid fa-jar"),
         ("Beef (1lb)", 7.99, "fa-solid fa-cow")
     ]
-    
+
     html = """
     <html>
     <head>
@@ -163,5 +163,25 @@ def show_items():
             <h2>Our Fresh Meat & Products</h2>
             <ul>
     """
-    
-    for item, price,
+
+    for item, price, icon in items:
+        html += f'<li><div class="item-container"><i class="{icon}"></i><span class="item-name">{item}</span></div><span class="item-price">${price:.2f}</span></li>'
+
+    html += """
+            </ul>
+            <img src="/static/images/meat_products.jpg" alt="Meat Products" class="meat-image">
+            <div class="bottom-section">
+                <p class="contact">
+                    Call or Text <a href="tel:+14129908956"><i class="fa-solid fa-phone"></i></a> | 
+                    <a href="https://wa.me/14129908956"><i class="fa-brands fa-whatsapp"></i></a>
+                </p>
+                <p class="note">Minimum 5 lbs to order - Delivery charges apply</p>
+            </div>
+        </div>
+    </body>
+    </html>
+    """
+    return html
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5000)
