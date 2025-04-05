@@ -5,8 +5,8 @@ app = Flask(__name__)
 def show_items():
     items = [
         ("Chicken (1lb)", 3.99, "fa-solid fa-drumstick-bite"),
-        ("Goat (1lb)", 7.99, "fa-solid fa-deer"),  # Trying fa-goat again
-        ("Live Goat (1lb)", 9.99, "fa-solid fa-deer"),  # Trying fa-goat again
+        ("Goat (1lb)", 7.99, "fa-solid fa-deer"),
+        ("Live Goat (1lb)", 9.99, "fa-solid fa-deer"),
         ("Eggs (1 Dozen)", 5.99, "fa-solid fa-egg"),
         ("Milk (1 Gallon)", 5.99, "fa-solid fa-mug-saucer"),
         ("Honey (Half kg)", 17.99, "fa-solid fa-jar"),
@@ -19,18 +19,26 @@ def show_items():
         <title>Farm to Fork Meats</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
         <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
             body {
                 font-family: Arial, sans-serif;
                 background-color: #000000;
-                margin: 0;
-                padding: 0;
+                color: #FFFFFF;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
             }
             .container {
                 background-color: #1C2526;
-                color: #FFFFFF;
                 padding: 20px;
-                min-height: 100vh;
-                box-sizing: border-box;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
             }
             h1 {
                 font-size: 36px;
@@ -53,13 +61,12 @@ def show_items():
             ul {
                 list-style-type: none;
                 padding: 0;
-                margin: 0 auto;
+                margin: 0 auto 20px auto;
                 max-width: 600px;
             }
             li {
                 font-size: 18px;
                 margin: 10px 0;
-                color: #FFFFFF;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
@@ -104,21 +111,20 @@ def show_items():
                 font-style: italic;
                 text-align: center;
                 margin-top: 10px;
+                margin-bottom: 10px;
                 color: #D3D3D3;
             }
             .meat-image {
                 display: block;
-                max-width: 50%;
-                max-height: 300px;
+                max-width: 80%;
                 height: auto;
                 margin: 20px auto;
                 border-radius: 10px;
                 box-shadow: 0 0 10px rgba(255,255,255,0.2);
             }
-            /* Responsive Design */
             @media (max-width: 600px) {
                 h1 {
-                    font-size: 24px;
+                    font-size: 26px;
                 }
                 h2 {
                     font-size: 20px;
@@ -134,7 +140,13 @@ def show_items():
                     width: 80px;
                 }
                 .meat-image {
-                    max-width: 80%;
+                    max-width: 90%;
+                }
+                .contact {
+                    font-size: 18px;
+                }
+                .note {
+                    font-size: 13px;
                 }
             }
         </style>
@@ -147,11 +159,9 @@ def show_items():
             <ul>
     """
     
-    # Add each item with its price and icon
     for item, price, icon in items:
         html += f'<li><div class="item-container"><i class="{icon}"></i><span class="item-name">{item}</span></div><span class="item-price">${price:.2f}</span></li>'
     
-    # Add image, contact info with phone and WhatsApp icons, and note
     html += """
             </ul>
             <img src="/static/images/meat_products.jpg" alt="Meat Products" class="meat-image">
