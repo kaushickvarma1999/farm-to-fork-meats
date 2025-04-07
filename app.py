@@ -4,7 +4,7 @@ app = Flask(__name__)
 @app.route('/')
 def show_items():
     items = [
-        ("Chicken (1lb)", 4.99, "fa-solid fa-drumstick-bite"),
+	("Chicken (1lb)", 4.99, "fa-solid fa-drumstick-bite"),
         ("Goat (1lb)", 7.99, "fa-solid fa-deer"),
         ("Live Goat (1lb)", 9.99, "fa-solid fa-deer"),
         ("Eggs (1 Dozen)", 5.99, "fa-solid fa-egg"),
